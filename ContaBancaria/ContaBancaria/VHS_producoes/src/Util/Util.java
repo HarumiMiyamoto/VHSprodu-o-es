@@ -19,7 +19,7 @@ public class Util {
     /**
      * @param args the command line arguments
      */
-   public static Connection conecta() throws SQLException{
+   public Connection conecta() throws SQLException{
         // TODO code application logic here
     Connection conexao = null;
     
