@@ -53,6 +53,12 @@ public class AgendaCad extends javax.swing.JFrame {
 
         jLabel5.setText("Tipo de gravação:");
 
+        local_gravacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                local_gravacaoActionPerformed(evt);
+            }
+        });
+
         tipo_gravacao.setColumns(20);
         tipo_gravacao.setRows(5);
         jScrollPane1.setViewportView(tipo_gravacao);
@@ -160,6 +166,10 @@ public class AgendaCad extends javax.swing.JFrame {
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
         System.exit(0);
     }//GEN-LAST:event_sairActionPerformed
+
+    private void local_gravacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_local_gravacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_local_gravacaoActionPerformed
 
     /**
      * @param args the command line arguments
