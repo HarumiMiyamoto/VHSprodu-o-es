@@ -3,16 +3,16 @@ package vhs_producoes;
 public class Cliente {
     
     String nome, rg, cpf, endereco, email, telefone;
-    int Id;
+    int ID_cliente;
 
-    public Cliente(String nome, String rg, String cpf, String endereco, String email, String telefone, int Id) {
+    public Cliente(String nome, String rg, String cpf, String endereco, String email, String telefone, int ID_cliente) {
         this.nome = nome;
         this.rg = rg;
         this.cpf = cpf;
         this.endereco = endereco;
         this.email = email;
         this.telefone = telefone;
-        this.Id = Id;
+        this.ID_cliente = ID_cliente;
     }
 
     public String getNome() {
@@ -64,11 +64,11 @@ public class Cliente {
     }
 
     public int getId() {
-        return Id;
+        return ID_cliente;
     }
 
     public void setId(int Id) {
-        this.Id = Id;
+        this.ID_cliente = ID_cliente;
     }
 
     public Cliente(String nome, String rg, String cpf, String endereco, String email, String telefone) {

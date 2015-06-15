@@ -1,22 +1,32 @@
 package vhs_producoes;
 
 public class Filmagem {
-    int Id;
+    int idFilmagem,idHelp;
     String Descr_filmagem, data_entrega;
 
-    public Filmagem(int Id, String Descr_filmagem, String data_entrega) {
-        this.Id = Id;
+    public Filmagem(int idFilmagem,int idHelp , String Descr_filmagem, String data_entrega) {
+        this.idFilmagem = idFilmagem;
+        this.idHelp=idHelp;
         this.Descr_filmagem = Descr_filmagem;
         this.data_entrega = data_entrega;
     }
 
-    public int getId() {
-        return Id;
+    public int getIdFilmagem() {
+        return idFilmagem;
     }
 
-    public void setId(int Id) {
-        this.Id = Id;
+    public void setIdFilmagem(int idFilmagem) {
+        this.idFilmagem = idFilmagem;
     }
+
+    public int getIdHelp() {
+        return idHelp;
+    }
+
+    public void setIdHelp(int idHelp) {
+        this.idHelp = idHelp;
+    }
+
 
     public String getDescr_filmagem() {
         return Descr_filmagem;
