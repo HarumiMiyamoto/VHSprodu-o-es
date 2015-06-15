@@ -1,6 +1,13 @@
 
+import Controller.LoginContoler;
+import View.Gerente.FuncionarioCon;
+import View.Gerente.FuncionarioInt;
 import View.Gerente.GerenteInt;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import vhs_producoes.Funcionario;
 
 /*
  * To change this template, choose Tools | Templates
@@ -33,12 +40,12 @@ public class login extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        login = new javax.swing.JTextField();
+        loginInput = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         Sair = new javax.swing.JButton();
         acessar = new javax.swing.JButton();
         limpar = new javax.swing.JButton();
-        senha = new javax.swing.JPasswordField();
+        senhaInput = new javax.swing.JPasswordField();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -50,9 +57,9 @@ public class login extends javax.swing.JFrame {
 
         jLabel2.setText(" Login:");
 
-        login.addActionListener(new java.awt.event.ActionListener() {
+        loginInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginActionPerformed(evt);
+                loginInputActionPerformed(evt);
             }
         });
 
@@ -79,9 +86,9 @@ public class login extends javax.swing.JFrame {
             }
         });
 
-        senha.addActionListener(new java.awt.event.ActionListener() {
+        senhaInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                senhaActionPerformed(evt);
+                senhaInputActionPerformed(evt);
             }
         });
 
@@ -108,8 +115,8 @@ public class login extends javax.swing.JFrame {
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(login, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
-                            .addComponent(senha))
+                            .addComponent(loginInput, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
+                            .addComponent(senhaInput))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -120,11 +127,11 @@ public class login extends javax.swing.JFrame {
                 .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(loginInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(senhaInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Sair)
@@ -136,38 +143,52 @@ public class login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+    private void loginInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginInputActionPerformed
    // if (login.getText().equals("gerente") && (senha.getText().equals("1234")));
     //.showMessageDialog(null,"seja bem vindo"+login);
-    }//GEN-LAST:event_loginActionPerformed
+    }//GEN-LAST:event_loginInputActionPerformed
 
     private void SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SairActionPerformed
      System.exit(0);
     }//GEN-LAST:event_SairActionPerformed
 
     private void acessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acessarActionPerformed
-        
-        if (login.getText().equals("gerente")&& (senha.getText().equals("12345"))){
-        JOptionPane.showMessageDialog(null,"seja bem vindo"+ login.getText());
-        new GerenteInt().setVisible(true);//no lugar de gerente colocar o login criado
-        this.dispose();
-        // mecher aki
+        try {
+            LoginContoler lgC = new LoginContoler();
+            Funcionario fLogado= lgC.autentica(loginInput.getText(), senhaInput.getSelectedText());
+            if (fLogado!=null){
+                                //verifica permição
+                if(fLogado.getCargo().equals("gerente")){
+                    //chamar tela gerente aki
+                    new GerenteInt().setVisible(true);
+                
+                }else  if(fLogado.getCargo().equals(  "funcionario")){
+                    //chamar tela funcionario
+                    new FuncionarioInt().setVisible(true);
+                }  else JOptionPane.showMessageDialog (null,"Permissão negaga  login ou senha incoreto");{
+             
+            }
+            }
+          //  JOptionPane.showMessageDialog(null,"seja bem vindo"+ login.getText());
+            new GerenteInt().setVisible(true);//no lugar de gerente colocar o login criado
+            this.dispose();
+            // mecher aki
+        } catch (SQLException ex) {
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_acessarActionPerformed
     
     
-     else{ 
-        JOptionPane.showMessageDialog(null,"aceeso negago");
 
-        }
-    }
+
     private void limparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparActionPerformed
-       login.setText("");
-       senha.setText("");
+       loginInput.setText("");
+       senhaInput.setText("");
     }//GEN-LAST:event_limparActionPerformed
 
-    private void senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaActionPerformed
+    private void senhaInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaInputActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_senhaActionPerformed
+    }//GEN-LAST:event_senhaInputActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,7 +233,7 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton limpar;
-    private javax.swing.JTextField login;
-    private javax.swing.JPasswordField senha;
+    private javax.swing.JTextField loginInput;
+    private javax.swing.JPasswordField senhaInput;
     // End of variables declaration//GEN-END:variables
 }

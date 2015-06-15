@@ -24,9 +24,9 @@ public class LoginContoler {
         Connection conexao = util.conecta(); //faz a conexão com banco
         Statement statement = conexao.createStatement();//usa da conqxão para pegar a credencial para acesso ao banco
         ResultSet result = statement.executeQuery(sql);//executa a consulta SQL e agora retoena valores, por isso ResultSet
-        Funcionario l = null;  //declaração de variavel  pessoa 
+        Funcionario l = null;  //declaração de variavel  funcionario
         while (result.next()) {
-            l = new Funcionario(result.getString("cargo"), result.getString("login"),result.getString("senha"));// inicializa pessoa
+            l = new Funcionario(result.getString("cargo"), result.getString("login"),result.getString("senha"));// inicializa funcionario
         }
         return l;
         

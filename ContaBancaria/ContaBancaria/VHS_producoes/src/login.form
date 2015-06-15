@@ -62,8 +62,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="login" pref="79" max="32767" attributes="0"/>
-                          <Component id="senha" max="32767" attributes="0"/>
+                          <Component id="loginInput" pref="79" max="32767" attributes="0"/>
+                          <Component id="senhaInput" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -79,12 +79,12 @@
               <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                  <Component id="login" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="loginInput" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="senha" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="senhaInput" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="66" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -108,9 +108,9 @@
         <Property name="text" type="java.lang.String" value=" Login:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="login">
+    <Component class="javax.swing.JTextField" name="loginInput">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginInputActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
@@ -142,9 +142,9 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="limparActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="senha">
+    <Component class="javax.swing.JPasswordField" name="senhaInput">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="senhaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="senhaInputActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
