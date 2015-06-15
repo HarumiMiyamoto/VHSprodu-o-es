@@ -23,7 +23,7 @@ public class Util {
         // TODO code application logic here
     Connection conexao = null;
     
-    String url ="192.200.63.121";
+    String url ="jdbc:mysql://192.200.63.121/VHS";
     String user="root";
     String password="123456";
   try{

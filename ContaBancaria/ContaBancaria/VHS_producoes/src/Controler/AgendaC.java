@@ -9,14 +9,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class AgendaC {
       public void InserirAgenda(Agenda a) throws SQLException{
         Util c = new Util();
         Connection conexao = c.conecta();
-        String sql = "INSERT INTO Agenda( Id, locla_gravacao, hora, data, tipo_gravacao) VALUES (?, ?, ?, ?) ";
+        String sql = "INSERT INTO Agenda(locla_gravacao, hora, data, tipo_gravacao) VALUES (?, ?, ?, ?) ";
         PreparedStatement statement = conexao.prepareStatement(sql);
-        statement.setInt(1, a.getId());
+
         statement.setString(2, a.getLocal_gravacao());
         statement.setString(3, a.getHora());
         statement.setString(4, a.getData());
@@ -24,7 +25,7 @@ public class AgendaC {
         
         int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0){
-                System.out.println("Nova Gravação inserida na agenda com sucesso");
+                JOptionPane.showMessageDialog(null,"Nova Gravação inserida na agenda com sucesso");
             }
             
             statement.close();
@@ -41,7 +42,7 @@ public class AgendaC {
             ResultSet result = statement.executeQuery(sql);
             ArrayList<Agenda> lista = new ArrayList<Agenda>();
             while (result.next()) {
-                Agenda a = new Agenda (result.getInt("Id"), result.getString("local_gravacao"), result.getString("hora"), result.getString("data"), result.getString("tipo_gravacao"));// inicializa agenda
+                Agenda a = new Agenda (result.getString("local_gravacao"), result.getString("hora"), result.getString("data"), result.getString("tipo_gravacao"));// inicializa agenda
                 lista.add(a);
             }
 
