@@ -1,3 +1,5 @@
+package View.Funcionario;
+
 
 import Controller.LoginContoler;
 import View.Gerente.FuncionarioCon;
@@ -18,12 +20,12 @@ import vhs_producoes.Funcionario;
  *
  * @author info206
  */
-public class login extends javax.swing.JFrame {
+public class LoginInt extends javax.swing.JFrame {
 
     /**
      * Creates new form login
      */
-    public login() {
+    public LoginInt() {
         initComponents();
     }
 
@@ -153,29 +155,39 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_SairActionPerformed
 
     private void acessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acessarActionPerformed
-        try {
-            LoginContoler lgC = new LoginContoler();
+        //teste apagar depos ---->
+        //if(loginInput.getText().equals("gerente") && (senhaInput.getText().equals("1234"))){
+        //JOptionPane.showMessageDialog(null , "acesso  de gerente");
+       // new GerenteInt().setVisible(true);
+         //this.dispose();
+       // }else{
+          //  JOptionPane.showMessageDialog(null,"acesso negado");
+        
+        
+    
+
+    
+        
+        
+           LoginContoler lgC = new LoginContoler();
             Funcionario fLogado= lgC.autentica(loginInput.getText(), senhaInput.getSelectedText());
             if (fLogado!=null){
                                 //verifica permição
                 if(fLogado.getCargo().equals("gerente")){
                     //chamar tela gerente aki
                     new GerenteInt().setVisible(true);
+                   this.dispose();
                 
-                }else  if(fLogado.getCargo().equals(  "funcionario")){
+               }else  if(fLogado.getCargo().equals(  "funcionario")){
                     //chamar tela funcionario
                     new FuncionarioInt().setVisible(true);
+                   this.dispose();
                 }  else JOptionPane.showMessageDialog (null,"Permissão negaga  login ou senha incoreto");{
              
             }
-            }
-          //  JOptionPane.showMessageDialog(null,"seja bem vindo"+ login.getText());
-            new GerenteInt().setVisible(true);//no lugar de gerente colocar o login criado
-            this.dispose();
-            // mecher aki
-        } catch (SQLException ex) {
-            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+       }   
         }
+         
     }//GEN-LAST:event_acessarActionPerformed
     
     
@@ -207,20 +219,20 @@ public class login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginInt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginInt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginInt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginInt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new login().setVisible(true);
+                new LoginInt().setVisible(true);
             }
         });
     }

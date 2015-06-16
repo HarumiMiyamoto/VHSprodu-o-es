@@ -23,16 +23,13 @@ public class Util {
         // TODO code application logic here
     Connection conexao = null;
     
-     // Conexão - Alterar os valores que estão destacados em cinza
-        String connectionUrl = "jdbc:mysql://192.200.63.121:3306;\" +\n" +
-"      \"databaseName=VHS;user=root;password=123456";
-    
-    /*String url ="jdbc:mysql://192.200.63.121/VHS";
+        
+    String url ="jdbc:mysql://192.200.63.121/VHS";
     String user="root";
-    String password="123456";*/
+    String password="123456";
   try{
       
-            conexao = DriverManager.getConnection(connectionUrl);
+            conexao = DriverManager.getConnection(url,user, password);
                      System.out.println("Conexão obtida com sucesso.");
 }
     catch(SQLException sqlex){
