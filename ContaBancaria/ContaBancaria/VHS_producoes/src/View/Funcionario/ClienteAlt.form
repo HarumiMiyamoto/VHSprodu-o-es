@@ -37,9 +37,9 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="voltar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                      <Component id="limpar" min="-2" max="-2" attributes="0"/>
+                      <Component id="atualizar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="salvar" min="-2" max="-2" attributes="0"/>
+                      <Component id="listar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="sair" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -59,8 +59,8 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="voltar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="sair" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="salvar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="limpar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="listar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="atualizar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -80,7 +80,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="jTable1">
+        <Component class="javax.swing.JTable" name="tabelaC">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="7" rowCount="12">
@@ -155,17 +155,20 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sairActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="salvar">
+    <Component class="javax.swing.JButton" name="listar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Listar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listarActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="limpar">
+    <Component class="javax.swing.JButton" name="atualizar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Atualizar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="limparActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="atualizarActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

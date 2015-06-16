@@ -4,6 +4,7 @@
  */
 package View.Funcionario;
 
+import View.Funcionario.Atualiza.AgendaAt;
 import Controler.AgendaC;
 import Model.Agenda;
 import Util.Util;
@@ -79,8 +80,18 @@ public class AgendaCon extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabelaAg);
 
         jButton1.setText("<--");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Sair");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Listar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -158,8 +169,16 @@ public class AgendaCon extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-
+        new AgendaAt().setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new FuncionarioInt2().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

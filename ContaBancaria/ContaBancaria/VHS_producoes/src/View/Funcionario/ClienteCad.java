@@ -4,6 +4,12 @@
  */
 package View.Funcionario;
 
+import Controler.ClienteC;
+import Model.Cliente;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author info206
@@ -181,7 +187,14 @@ public class ClienteCad extends javax.swing.JFrame {
     }//GEN-LAST:event_limparActionPerformed
 
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
-        // TODO add your handling code here:
+        Cliente c = new Cliente(nome.getText(), rg.getText(), cpf.getText(), endereco.getText(), email.getText(), tel.getText());
+        
+        ClienteC cl = new ClienteC();
+        try {
+            cl.InserirCliente(c);
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteCad.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_salvarActionPerformed
 
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
