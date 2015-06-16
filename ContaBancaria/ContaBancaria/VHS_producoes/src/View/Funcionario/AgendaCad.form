@@ -125,6 +125,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="local_gravacao">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="local_gravacaoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="data">
     </Component>

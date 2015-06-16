@@ -5,10 +5,10 @@
 package View.Funcionario;
 
 import Controler.AgendaC;
-import Model.Agenda;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import vhs_producoes.Agenda;
 
 
 /**
@@ -59,6 +59,12 @@ public class AgendaCad extends javax.swing.JFrame {
         jLabel4.setText("Hora:");
 
         jLabel5.setText("Tipo de gravação:");
+
+        local_gravacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                local_gravacaoActionPerformed(evt);
+            }
+        });
 
         tipo_gravacao.setColumns(20);
         tipo_gravacao.setRows(5);
@@ -183,6 +189,11 @@ public class AgendaCad extends javax.swing.JFrame {
             Logger.getLogger(AgendaCad.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_salvarActionPerformed
+
+    private void local_gravacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_local_gravacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_local_gravacaoActionPerformed
+
 
     /**
      * @param args the command line arguments

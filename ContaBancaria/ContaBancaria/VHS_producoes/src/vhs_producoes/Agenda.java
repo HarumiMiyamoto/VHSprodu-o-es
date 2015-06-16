@@ -1,15 +1,18 @@
 package vhs_producoes;
 
 public class Agenda {
-    String local_gravacao, hora, data, tipo_gravacao;
-    int Id;
+    String locla_gravacao, hora, data, tipo_gravacao;
+    int ID_agenda, idFilmagem;
+   
+   
 
-    public Agenda(String local_gravacao, String hora, String data, String tipo_gravacao, int Id) {
-        this.local_gravacao = local_gravacao;
+    public Agenda(String locla_gravacao, String hora, String data, String tipo_gravacao, int ID_agenda, int idFilmagem) {
+        this.locla_gravacao = locla_gravacao;
         this.hora = hora;
         this.data = data;
         this.tipo_gravacao = tipo_gravacao;
-        this.Id = Id;
+        this.ID_agenda = ID_agenda;
+        this.idFilmagem= idFilmagem;
     }
 
     public String getLocal_gravacao() {
@@ -45,15 +48,24 @@ public class Agenda {
     }
 
     public int getId() {
-        return Id;
+        return ID_agenda;
     }
 
     public void setId(int Id) {
-        this.Id = Id;
+        this.ID_agenda = ID_agenda;
     }
 
-    public Agenda(String local_gravacao, String hora, String data, String tipo_gravacao) {
-        this.local_gravacao = local_gravacao;
+    public int getIdFilmagem() {
+        return idFilmagem;
+    }
+
+    public void setIdFilmagem(int idFilmagem) {
+        this.idFilmagem = idFilmagem;
+    }
+     
+
+    public Agenda(String locla_gravacao, String hora, String data, String tipo_gravacao) {
+        this.locla_gravacao = locla_gravacao;
         this.hora = hora;
         this.data = data;
         this.tipo_gravacao = tipo_gravacao;
