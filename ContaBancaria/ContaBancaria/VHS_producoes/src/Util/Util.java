@@ -9,6 +9,7 @@ package Util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,15 +23,23 @@ public class Util {
    public Connection conecta() throws SQLException{
         // TODO code application logic here
     Connection conexao = null;
+
     
+
         
+
+
     String url ="jdbc:mysql://192.200.63.121/VHS";
     String user="root";
     String password="123456";
   try{
       
+
             conexao = DriverManager.getConnection(url,user, password);
                      System.out.println("Conexão obtida com sucesso.");
+            conexao = DriverManager.getConnection(url, user, password);
+                     JOptionPane.showMessageDialog(null, "Conexão obtida com sucesso.");
+
 }
     catch(SQLException sqlex){
     System.out.println("Erro na conexão "+ sqlex);
@@ -42,7 +51,7 @@ public class Util {
     try{
     conexao.close();
     }catch(SQLException sqlex){
-    System.out.println("Erro na conexão "+ sqlex);
+    JOptionPane.showMessageDialog(null,"Erro na conexão "+ sqlex);
     }
     }
    

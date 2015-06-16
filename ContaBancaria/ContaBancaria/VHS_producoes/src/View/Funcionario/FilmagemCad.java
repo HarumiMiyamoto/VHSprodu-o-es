@@ -4,6 +4,12 @@
  */
 package View.Funcionario;
 
+import Controler.FilmagemC;
+import Model.Filmagem;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author info206
@@ -64,6 +70,11 @@ public class FilmagemCad extends javax.swing.JFrame {
         });
 
         salvar.setText("Salvar");
+        salvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salvarActionPerformed(evt);
+            }
+        });
 
         limpar.setText("Limpar");
         limpar.addActionListener(new java.awt.event.ActionListener() {
@@ -143,6 +154,17 @@ public class FilmagemCad extends javax.swing.JFrame {
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
         System.exit(0);
     }//GEN-LAST:event_sairActionPerformed
+
+    private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
+        Filmagem f = new Filmagem(descricao.getText(), data_entrega.getText());
+        
+        FilmagemC c = new FilmagemC();
+        try {
+            c.InserirFilmagem(f);
+        } catch (SQLException ex) {
+            Logger.getLogger(FilmagemCad.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_salvarActionPerformed
 
     /**
      * @param args the command line arguments

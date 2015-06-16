@@ -15,12 +15,12 @@ public class Agenda {
         this.idFilmagem= idFilmagem;
     }
 
-    public String getLocla_gravacao() {
-        return locla_gravacao;
+    public String getLocal_gravacao() {
+        return local_gravacao;
     }
 
-    public void setLocla_gravacao(String locla_gravacao) {
-        this.locla_gravacao = locla_gravacao;
+    public void setLocal_gravacao(String local_gravacao) {
+        this.local_gravacao = local_gravacao;
     }
 
     public String getHora() {

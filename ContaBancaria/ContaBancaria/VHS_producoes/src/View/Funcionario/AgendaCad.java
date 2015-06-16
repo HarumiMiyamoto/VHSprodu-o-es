@@ -4,6 +4,13 @@
  */
 package View.Funcionario;
 
+import Controler.AgendaC;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import vhs_producoes.Agenda;
+
+
 /**
  *
  * @author info206
@@ -78,6 +85,11 @@ public class AgendaCad extends javax.swing.JFrame {
         });
 
         salvar.setText("Salvar");
+        salvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salvarActionPerformed(evt);
+            }
+        });
 
         limpar.setText("Limpar");
         limpar.addActionListener(new java.awt.event.ActionListener() {
@@ -167,9 +179,21 @@ public class AgendaCad extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_sairActionPerformed
 
+    private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
+       Agenda a =new Agenda(local_gravacao.getText(),hora.getText(), data.getText(), tipo_gravacao.getText());
+        
+        AgendaC c = new AgendaC();
+        try {
+            c.InserirAgenda(a);
+        } catch (SQLException ex) {
+            Logger.getLogger(AgendaCad.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_salvarActionPerformed
+
     private void local_gravacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_local_gravacaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_local_gravacaoActionPerformed
+
 
     /**
      * @param args the command line arguments

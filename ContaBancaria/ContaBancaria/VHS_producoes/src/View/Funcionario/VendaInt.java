@@ -4,6 +4,12 @@
  */
 package View.Funcionario;
 
+import Controler.VendaC;
+import Model.Venda;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author info206
@@ -142,7 +148,14 @@ public class VendaInt extends javax.swing.JFrame {
     }//GEN-LAST:event_sairActionPerformed
 
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
-        // TODO add your handling code here:
+        Venda v = new Venda(data.getText());
+        
+        VendaC c = new VendaC();
+        try {
+            c.InserirVenda(v);
+        } catch (SQLException ex) {
+            Logger.getLogger(VendaInt.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_salvarActionPerformed
 
     /**

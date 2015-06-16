@@ -4,6 +4,15 @@
  */
 package View.Funcionario;
 
+import Controler.ClienteC;
+import Model.Cliente;
+import View.Funcionario.Atualiza.AtualizarC;
+import java.security.Principal;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author info206
@@ -28,17 +37,17 @@ public class ClienteAlt extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabelaC = new javax.swing.JTable();
         voltar = new javax.swing.JButton();
         sair = new javax.swing.JButton();
-        salvar = new javax.swing.JButton();
-        limpar = new javax.swing.JButton();
+        listar = new javax.swing.JButton();
+        atualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("CONSULTAR CLIENTE");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -65,7 +74,7 @@ public class ClienteAlt extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabelaC);
 
         voltar.setText("<--");
         voltar.addActionListener(new java.awt.event.ActionListener() {
@@ -81,12 +90,17 @@ public class ClienteAlt extends javax.swing.JFrame {
             }
         });
 
-        salvar.setText("Listar");
-
-        limpar.setText("Atualizar");
-        limpar.addActionListener(new java.awt.event.ActionListener() {
+        listar.setText("Listar");
+        listar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                limparActionPerformed(evt);
+                listarActionPerformed(evt);
+            }
+        });
+
+        atualizar.setText("Atualizar");
+        atualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atualizarActionPerformed(evt);
             }
         });
 
@@ -107,9 +121,9 @@ public class ClienteAlt extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(voltar)
                         .addGap(62, 62, 62)
-                        .addComponent(limpar)
+                        .addComponent(atualizar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(salvar)
+                        .addComponent(listar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(sair)))
                 .addContainerGap())
@@ -125,8 +139,8 @@ public class ClienteAlt extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(voltar)
                     .addComponent(sair)
-                    .addComponent(salvar)
-                    .addComponent(limpar))
+                    .addComponent(listar)
+                    .addComponent(atualizar))
                 .addContainerGap())
         );
 
@@ -141,9 +155,32 @@ public class ClienteAlt extends javax.swing.JFrame {
         new FuncionarioInt2().setVisible(true);
     }//GEN-LAST:event_voltarActionPerformed
 
-    private void limparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_limparActionPerformed
+    private void atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarActionPerformed
+        new AtualizarC().setVisible(true);
+    }//GEN-LAST:event_atualizarActionPerformed
+
+    private void listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarActionPerformed
+        ClienteC c = new ClienteC();
+        
+        ArrayList<Cliente> lista;
+        try {
+            lista = c.getAll();
+            int linha = 0, coluna = 0;
+            for (Cliente lista1 : lista) {
+                tabelaC.setValueAt(lista1.getId(), linha, coluna );
+                tabelaC.setValueAt(lista1.getNome(), linha, coluna + 1);
+                tabelaC.setValueAt(lista1.getRg(), linha, coluna + 2);
+                tabelaC.setValueAt(lista1.getCpf(), linha, coluna + 3);
+                tabelaC.setValueAt(lista1.getEndereco(), linha, coluna + 4);
+                tabelaC.setValueAt(lista1.getTelefone(), linha, coluna + 5);
+                tabelaC.setValueAt(lista1.getEmail(), linha, coluna + 6);
+                linha++;
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_listarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,12 +217,12 @@ public class ClienteAlt extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton atualizar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JButton limpar;
+    private javax.swing.JButton listar;
     private javax.swing.JButton sair;
-    private javax.swing.JButton salvar;
+    private javax.swing.JTable tabelaC;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 }
